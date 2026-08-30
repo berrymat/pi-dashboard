@@ -53,7 +53,7 @@ export default async function PatternsPage({
             variant={!currentStatus ? "default" : "outline"}
             className="cursor-pointer"
           >
-            All
+            Current
           </Badge>
         </Link>
         {statuses.map((status) => (
