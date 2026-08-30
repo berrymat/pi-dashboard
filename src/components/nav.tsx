@@ -11,6 +11,7 @@ import {
   Activity,
   Sparkles,
   Hammer,
+  Brain,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ const navItems = [
   { href: "/tasks", label: "Tasks", icon: CheckSquare },
   { href: "/ideas", label: "Ideas", icon: Lightbulb },
   { href: "/decisions", label: "Decisions", icon: GitBranch },
+  { href: "/patterns", label: "Patterns", icon: Brain },
   { href: "/activity", label: "Activity", icon: Activity },
 ];
 

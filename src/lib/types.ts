@@ -89,17 +89,54 @@ export interface Decision {
   projects?: { slug: string; name: string } | null;
 }
 
+export type PatternRuleType =
+  | "sync_required"
+  | "convention"
+  | "architecture"
+  | "process"
+  | "failure_mode"
+  | "strategy";
+
+export type PatternStatus = "candidate" | "active" | "compiled" | "retired";
+
+export interface PatternEvidence {
+  direction: "confirms" | "contradicts";
+  ref_type: "activity" | "work_item" | "decision" | "task" | "session" | "manual";
+  ref_id?: string;
+  note: string;
+  at: string;
+}
+
 export interface Pattern {
   id: string;
   project_id: string | null;
   name: string;
   description: string;
-  rule_type: "sync_required" | "convention" | "architecture" | "process";
+  rule_type: PatternRuleType;
   trigger_conditions: Record<string, unknown> | null;
   is_active: boolean;
+  root_cause: string | null;
+  recommendation: string | null;
+  status: PatternStatus;
+  evidence: PatternEvidence[];
+  occurrence_count: number;
+  last_seen_at: string;
+  source: "manual" | "consolidator";
   created_at: string;
   updated_at: string;
   projects?: { slug: string; name: string } | null;
+}
+
+export interface GuidanceImpact {
+  id: string;
+  pattern_id: string | null;
+  project_id: string | null;
+  proposal: string;
+  target: "claude_md" | "skill" | "briefing";
+  outcome: "pending" | "accepted" | "rejected" | "reverted";
+  rationale: string | null;
+  created_at: string;
+  resolved_at: string | null;
 }
 
 export interface WorkItem {
@@ -133,7 +170,8 @@ export interface ActivityLog {
     | "task_completed"
     | "decision_made"
     | "work_started"
-    | "work_completed";
+    | "work_completed"
+    | "consolidation";
   description: string | null;
   context: Record<string, unknown>;
   created_at: string;

@@ -49,6 +49,38 @@ const statusConfig: Record<string, { label: string; className: string }> = {
     className:
       "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800",
   },
+  // Pattern statuses
+  candidate: {
+    label: "Candidate",
+    className:
+      "bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-950 dark:text-violet-300 dark:border-violet-800",
+  },
+  active: {
+    label: "Active",
+    className:
+      "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800",
+  },
+  compiled: {
+    label: "Compiled",
+    className:
+      "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950 dark:text-sky-300 dark:border-sky-800",
+  },
+  retired: {
+    label: "Retired",
+    className:
+      "bg-stone-100 text-stone-500 border-stone-200 dark:bg-stone-900 dark:text-stone-400 dark:border-stone-700",
+  },
+  // Guidance outcomes
+  accepted: {
+    label: "Accepted",
+    className:
+      "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800",
+  },
+  reverted: {
+    label: "Reverted",
+    className:
+      "bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950 dark:text-rose-300 dark:border-rose-800",
+  },
   // Decision types
   chose: {
     label: "Chose",
